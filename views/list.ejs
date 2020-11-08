@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="box" id="heading">
+    <h1><%= kindOfday %></h1>
+  </div>
+  <div class="box">
+    <%var len = items.length%>
+    <%for(i=0;i<len ; i++){%>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" onChange="this.form.submit()" value="<%= items[i]._id %>">
+      </form>
+          <p><%= items[i].name%></p>
+        </div>
+        <%}%>
+
+
+    <form class="item" action="/" method="post">
+      <input type="text" name="newItem" placeholder="New item" autocomplete="off">
+      <button type="submit" name="list" value=<%= kindOfday %>>+</button>
+    </form>
+    </div>
+
+  </body>
+  <footer>
+    <p class="copyRight">© Arjav Parekh</p>
+  </footer>
+</html>
